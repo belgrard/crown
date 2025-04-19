@@ -1,8 +1,10 @@
-<h1 align="center">👑 Crown CMS</h1>
 <p align="center">
-  A modern, full-stack CMS for Habbo retros.<br>
-  Built with <strong>Node.js</strong>, <strong>React</strong>, <strong>MongoDB</strong>, and <strong>TailwindCSS</strong>.<br>
-  <em>No PHP. No legacy code. Just pure control and modern design.</em>
+<img src="crown.png"/>
+
+A modern, full-stack CMS for Habbo retros.<br>
+Built with <strong>Node.js</strong>, <strong>React</strong>, <strong>MongoDB</strong>, and <strong>TailwindCSS</strong>.<br>
+<em>No PHP. No legacy code. Just pure control and modern design.</em>
+
 </p>
 
 ---
