@@ -1,0 +1,15 @@
+{
+  "hotel": {
+    "name": "Crown"
+  },
+  "index": {
+    "title": "CrownCMS",
+    "header": {
+      "description": "An online virtual world where you can create your own avatar, make friends, chat, create rooms and much more!",
+      "login": "Login",
+      "or": "or",
+      "register": "Create an account",
+      "background": "/hero-bg.png"
+    }
+  }
+}
