@@ -1,6 +1,5 @@
 <p align="center">
-<img src="crown.png"/>
-
+<img src="crown.png" height="50rem"/> <br/>
 A modern, full-stack CMS for Habbo retros.<br>
 Built with <strong>Node.js</strong>, <strong>React</strong>, <strong>MongoDB</strong>, and <strong>TailwindCSS</strong>.<br>
 <em>No PHP. No legacy code. Just pure control and modern design.</em>
