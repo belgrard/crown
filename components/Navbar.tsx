@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { navItems } from "@/config/crown";
+import { navItems } from "@/config/crown"; // List of navigation items
 import Image from "next/image";
 
 export default function Navbar() {
@@ -11,6 +11,7 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Function to close dropdown if a click occurs outside of it
   const handleClickOutside = (event: MouseEvent) => {
     if (
       dropdownRef.current &&
@@ -20,6 +21,7 @@ export default function Navbar() {
     }
   };
 
+  // Add/remove event listener for outside click detection
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -32,7 +34,8 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-900 text-white h-15 px-4 flex items-center gap-6 text-sm font-bold relative">
+    <nav className="bg-gray-900 text-white h-15 px-15 flex items-center gap-8 text-sm font-bold relative">
+      {/* Loop over each nav item */}
       {navItems.map(({ href, label, icon, dropdown }) => {
         const isDropdownOpen = openDropdown === label;
         const isActive =
@@ -42,7 +45,7 @@ export default function Navbar() {
 
         return (
           <div key={label} className="relative group h-full" ref={dropdownRef}>
-            {/* TOP LEVEL MENU */}
+            {/* Top-level navigation item - button if it has a dropdown, else a Link */}
             {dropdown ? (
               <button
                 onClick={() => toggleDropdown(label)}
@@ -73,7 +76,7 @@ export default function Navbar() {
             {/* DROPDOWN */}
             {dropdown && isDropdownOpen && (
               <div
-                onMouseLeave={() => setOpenDropdown(null)}
+                onMouseLeave={() => setOpenDropdown(null)} // Auto-close dropdown on mouse leave
                 className="absolute top-full left-0 w-56 bg-[#0e1621] shadow-lg rounded-md py-2 z-50 border border-gray-800"
               >
                 {dropdown.map((item) => (

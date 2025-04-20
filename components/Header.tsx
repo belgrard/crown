@@ -10,17 +10,18 @@ export default function Header() {
 
   const loginPopupRef = useRef<HTMLDivElement>(null);
 
+  // Closes the login popup if a click happens outside of it
   const handleClickOutside = (event: MouseEvent) => {
     if (
       showLogin &&
       loginPopupRef.current &&
       !loginPopupRef.current.contains(event.target as Node)
     ) {
-      console.log("xd");
       setShowLogin(false);
     }
   };
 
+  // Add/remove event listener for detecting outside clicks
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -64,6 +65,7 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Render login popup if showLogin is true */}
       {showLogin && (
         <div ref={loginPopupRef}>
           <LoginPopup onClose={() => setShowLogin(false)} />

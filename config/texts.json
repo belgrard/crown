@@ -9,7 +9,7 @@
       "login": "Login",
       "or": "or",
       "register": "Create an account",
-      "background": "/hero-bg.png"
+      "background": "/assets/hero-bg.png"
     },
     "login": {
       "hello": "Hello!",
