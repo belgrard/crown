@@ -48,6 +48,6 @@ export const posts = [
 // NEVER lose or share the following two strings anywhere!
 // One small mistake can result in unauthorized access to your entire database.
 
-export const MONGODB_URI = "";
+export const MONGODB_URI: string = process.env.MONGODB_URI || "";
 
-export const JWT_SECRET = "super_secret_string";
+export const JWT_SECRET = process.env.JWT_SECRET || "";
