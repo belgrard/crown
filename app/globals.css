@@ -22,3 +22,7 @@ body {
   margin: 0 0 20px;
   transition: 0.3s;
 }
+
+.swal2-toast .swal2-timer-progress-bar {
+  background-color: oklch(85.2% 0.199 91.936);
+}

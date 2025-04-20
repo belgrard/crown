@@ -44,3 +44,10 @@ export const posts = [
     image: "/assets/hero-bg.png",
   },
 ];
+
+// NEVER lose or share the following two strings anywhere!
+// One small mistake can result in unauthorized access to your entire database.
+
+export const MONGODB_URI = "";
+
+export const JWT_SECRET = "super_secret_string";

@@ -2,6 +2,12 @@
   "hotel": {
     "name": "Crown"
   },
+  "server": {
+    "errors": {
+      "emailinuse": "Email already in use",
+      "usernameinuse": "Username already in use"
+    }
+  },
   "index": {
     "title": "CrownCMS",
     "header": {
@@ -26,5 +32,35 @@
     "submit": "Login",
     "forgotpassword": "Did you forget your password?",
     "donthaveaccount": "Don't you have an account?"
+  },
+  "register": {
+    "title": "Crown - Create account",
+    "box": {
+      "title": "Create your account!",
+      "description": "Create a free account, and be a part of a fun online world!"
+    },
+    "form": {
+      "username": {
+        "label": "Username",
+        "placeholder": "Username",
+        "description": "Your username is what you will have to use, when logging into Crown. It is also what other users will know you as, so make sure you select a username that you like!"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email",
+        "description": "You will need your email if you were to ever forget your password, so make sure it is something that you remember."
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Choose a secure password",
+        "description": "Your password must contain at least 8 characters. Make sure to use a unique & secure password.",
+        "confirmation": {
+          "label": "Repeat password",
+          "placeholder": "Repeat your chosen password"
+        }
+      },
+      "submit": "Create account",
+      "terms": "I accept the Crown terms & rules."
+    }
   }
 }
