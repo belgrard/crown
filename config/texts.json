@@ -6,7 +6,22 @@
     "errors": {
       "emailinuse": "Email already in use",
       "usernameinuse": "Username already in use",
-      "emailorpassword": "Invalid email or password"
+      "emailorpassword": "Invalid email or password",
+      "terms": "The terms field is required.",
+      "password": {
+        "length": "Password must be at least 8 characters.",
+        "match": "Invalid password",
+        "required": "Password is required"
+      },
+      "username": {
+        "length": "Username must be at least 1 characters.",
+        "match": "Username must contain only letters, numbers or underscores",
+        "required": "Username is required"
+      },
+      "email": {
+        "match": "Invalid email",
+        "required": "Email is required"
+      }
     }
   },
   "index": {
@@ -58,7 +73,8 @@
         "confirmation": {
           "label": "Repeat password",
           "placeholder": "Repeat your chosen password"
-        }
+        },
+        "dontmatch": "Passwords don't match!"
       },
       "submit": "Create account",
       "terms": "I accept the Crown terms & rules."

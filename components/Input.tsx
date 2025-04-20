@@ -5,6 +5,7 @@ export interface InputProps {
   description?: string;
   id?: string;
   name?: string;
+  minLength?: number;
 }
 
 export default function Input({
@@ -14,6 +15,7 @@ export default function Input({
   description,
   id,
   name,
+  minLength,
 }: InputProps) {
   return (
     <div className="mb-3">
@@ -26,6 +28,7 @@ export default function Input({
         className="w-full px-3 py-2 bg-transparent border-2 border-gray-600 rounded-md placeholder-gray-500 focus:outline-none focus:border-yellow-500"
         id={id}
         name={name}
+        minLength={minLength}
       />
     </div>
   );

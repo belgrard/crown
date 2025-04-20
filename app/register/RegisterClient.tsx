@@ -36,14 +36,20 @@ export default function RegisterPage() {
     const formData = new FormData(e.currentTarget);
     const username = formData.get("username");
     const password = formData.get("password");
+    const passwordRepeat = formData.get("password_confirmation");
     const email = formData.get("email");
+    const terms = formData.get("terms");
+
+    if (passwordRepeat !== password) {
+      return showToast(t("register.form.password.dontmatch"));
+    }
 
     const res = await fetch("/api/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password, email }),
+      body: JSON.stringify({ username, password, email, terms }),
     });
 
     if (res.ok) {
@@ -86,8 +92,9 @@ export default function RegisterPage() {
                 description={t("register.form.password.description")}
                 placeholder={t("register.form.password.placeholder")}
                 id="password"
-                type="current-password"
+                type="password"
                 name="password"
+                minLength={8}
               />
 
               <Input
@@ -96,8 +103,9 @@ export default function RegisterPage() {
                   "register.form.password.confirmation.placeholder"
                 )}
                 id="password_confirmation"
-                type="current-password"
+                type="password"
                 name="password_confirmation"
+                minLength={8}
               />
 
               <div className="mt-4 rounded-md p-4 flex flex-col gap-y-1 bg-gray-800">

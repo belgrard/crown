@@ -45,9 +45,17 @@ export const posts = [
   },
 ];
 
+export const defaultMotto = "Hey, I'm using Crown CMS!";
+
+export const defaultCurrencies = {
+  duckets: 5000,
+  credits: 100_000,
+  diamonds: 0,
+};
+
 // NEVER lose or share the following two strings anywhere!
 // One small mistake can result in unauthorized access to your entire database.
 
 export const MONGODB_URI: string = process.env.MONGODB_URI || "";
 
-export const JWT_SECRET = process.env.JWT_SECRET || "";
+export const JWT_SECRET = process.env.JWT_SECRET || " ";

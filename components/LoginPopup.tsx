@@ -115,7 +115,7 @@ export default function LoginPopup({ onClose }: { onClose: () => void }) {
             <p>{t("login.forgotpassword")}</p>
           </Link>
 
-          <Link href="/register" className="hover:underline">
+          <Link onClick={onClose} href="/register" className="hover:underline">
             <p>{t("login.donthaveaccount")}</p>
           </Link>
         </div>
