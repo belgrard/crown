@@ -34,7 +34,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-900 text-white h-15 px-15 flex items-center gap-8 text-sm font-bold relative">
+    <nav className="bg-gray-900 mx-auto text-white h-15 px-15 flex items-center gap-8 text-sm font-bold relative">
       {/* Loop over each nav item */}
       {navItems.map(({ href, label, icon, dropdown }) => {
         const isDropdownOpen = openDropdown === label;
