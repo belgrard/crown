@@ -5,7 +5,8 @@
   "server": {
     "errors": {
       "emailinuse": "Email already in use",
-      "usernameinuse": "Username already in use"
+      "usernameinuse": "Username already in use",
+      "emailorpassword": "Invalid email or password"
     }
   },
   "index": {

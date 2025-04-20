@@ -1,8 +1,55 @@
+"use client";
+
 import { t } from "@/lib/texts";
 import Link from "next/link";
 import Input from "./Input";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { useRouter } from "next/navigation";
 
 export default function LoginPopup({ onClose }: { onClose: () => void }) {
+  const router = useRouter();
+
+  const showToast = (text: string) => {
+    withReactContent(Swal).fire({
+      title: text,
+      theme: "dark",
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+      icon: "error",
+      toast: true,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const username = formData.get("username");
+    const password = formData.get("password");
+
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (res.ok) {
+      router.push("/");
+    } else {
+      const { error } = await res.json();
+      showToast(error);
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
       <div className="bg-gray-900 rounded-lg p-6 w-[380px] max-w-full relative text-white">
@@ -37,19 +84,21 @@ export default function LoginPopup({ onClose }: { onClose: () => void }) {
           {t("login.description").replace("{0}", "2")}
         </p>
 
-        <form className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
             <Input
               placeholder={t("login.username.placeholder")}
               type="text"
               label={t("login.username.label")}
+              name="username"
             />
           </div>
           <div>
             <Input
               placeholder={t("login.password.placeholder")}
-              type="current-password"
+              type="password"
               label={t("login.password.label")}
+              name="password"
             />
           </div>
 
