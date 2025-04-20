@@ -10,6 +10,21 @@
       "or": "or",
       "register": "Create an account",
       "background": "/hero-bg.png"
+    },
+    "login": {
+      "hello": "Hello!",
+      "description": "There is currently {0} users online",
+      "username": {
+        "label": "Username",
+        "placeholder": "Username"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Password"
+      },
+      "submit": "Login",
+      "forgotpassword": "Did you forget your password?",
+      "donthaveaccount": "Don't you have an account?"
     }
   }
 }

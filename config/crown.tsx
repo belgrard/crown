@@ -2,12 +2,12 @@ export const navItems = [
   {
     href: "/",
     label: "Home",
-    icon: "/home.png",
+    icon: "/assets/home.png",
   },
   {
     href: "/community",
     label: "Community",
-    icon: "/globe.png",
+    icon: "/assets/globe.png",
     dropdown: [
       { href: "/community/articles", label: "Articles" },
       { href: "/community/staff", label: "Staff" },

@@ -2,34 +2,54 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { navItems } from "@/config/crown";
 import Image from "next/image";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setOpenDropdown(null);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const toggleDropdown = (label: string) => {
     setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
   return (
-    <nav className="bg-[#0e1621] text-white px-8 py-4 flex items-center gap-6 text-sm font-bold relative z-50">
+    <nav className="bg-gray-900 text-white h-15 px-4 flex items-center gap-6 text-sm font-bold relative">
       {navItems.map(({ href, label, icon, dropdown }) => {
-        const isActive = pathname === href || pathname.startsWith(href + "/");
         const isDropdownOpen = openDropdown === label;
+        const isActive =
+          pathname === href ||
+          pathname.startsWith(href + "/") ||
+          isDropdownOpen;
 
         return (
-          <div key={label} className="relative group">
+          <div key={label} className="relative group h-full" ref={dropdownRef}>
             {/* TOP LEVEL MENU */}
             {dropdown ? (
               <button
                 onClick={() => toggleDropdown(label)}
-                className={`flex items-center gap-1 relative pb-1 transition duration-200 hover:text-yellow-400 ${
+                className={`flex cursor-pointer items-center gap-1 relative transition duration-250 ease-in-out border-b-4 hover:text-yellow-400 border-transparent h-full ${
                   isActive
-                    ? "text-white after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-yellow-400"
-                    : "after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-0 after:bg-yellow-400 group-hover:after:w-full group-hover:after:transition-all"
+                    ? "text-white border-yellow-400"
+                    : "hover:border-yellow-400"
                 }`}
               >
                 <Image src={icon} alt={icon} height={15} width={15}></Image>
@@ -38,13 +58,14 @@ export default function Navbar() {
             ) : (
               <Link
                 href={href}
-                className={`flex items-center gap-1 relative pb-1 transition duration-200 hover:text-yellow-400 ${
+                className={`flex cursor-pointer items-center gap-1 relative transition duration-250 ease-in-out border-b-4 hover:text-yellow-400 border-transparent h-full ${
                   isActive
-                    ? "text-white after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:bg-yellow-400"
-                    : "after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-0 after:bg-yellow-400 group-hover:after:w-full group-hover:after:transition-all"
+                    ? "text-white border-yellow-400"
+                    : "hover:border-yellow-400"
                 }`}
               >
                 <Image src={icon} alt={icon} height={15} width={15}></Image>
+
                 <span>{label.toUpperCase()}</span>
               </Link>
             )}
@@ -53,7 +74,7 @@ export default function Navbar() {
             {dropdown && isDropdownOpen && (
               <div
                 onMouseLeave={() => setOpenDropdown(null)}
-                className="absolute top-full left-0 mt-2 w-56 bg-[#0e1621] shadow-lg rounded-md py-2 z-50 border border-gray-800"
+                className="absolute top-full left-0 w-56 bg-[#0e1621] shadow-lg rounded-md py-2 z-50 border border-gray-800"
               >
                 {dropdown.map((item) => (
                   <Link

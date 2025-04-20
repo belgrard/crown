@@ -1,7 +1,34 @@
+"use client";
+
 import { t } from "@/lib/texts";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import LoginPopup from "./LoginPopup";
 
 export default function Header() {
+  const [showLogin, setShowLogin] = useState(false);
+
+  const loginPopupRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      showLogin &&
+      loginPopupRef.current &&
+      !loginPopupRef.current.contains(event.target as Node)
+    ) {
+      console.log("xd");
+      setShowLogin(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div
       className="relative flex h-52 w-full items-center justify-center header-bg bg-cover bg-center"
@@ -16,6 +43,7 @@ export default function Header() {
         <div className="flex flex-col items-center justify-center gap-x-6 gap-y-4 md:mt-6 md:flex-row md:gap-y-0">
           <button
             type="button"
+            onClick={() => setShowLogin(true)}
             className="rounded-full border-2 border-white px-8 py-2 uppercase transition duration-200 cursor-pointer ease-in-out hover:bg-white hover:text-black"
           >
             {t("index.header.login")}
@@ -35,6 +63,12 @@ export default function Header() {
           </Link>
         </div>
       </div>
+
+      {showLogin && (
+        <div ref={loginPopupRef}>
+          <LoginPopup onClose={() => setShowLogin(false)} />
+        </div>
+      )}
     </div>
   );
 }

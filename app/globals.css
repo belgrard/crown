@@ -8,5 +8,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hotel-icon {
+  background: #f68b08 url("/hotel-icon.png") no-repeat center;
 }

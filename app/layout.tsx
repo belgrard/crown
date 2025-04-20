@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
 
 const poppins = Poppins({
-  variable: "--font-geist-sans",
+  variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "600", "700"],
 });
@@ -17,11 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* Header */}
-
-      {/* Navbar */}
-
-      <body className={`${poppins.variable} antialiased`}>
+      <body className={`${poppins.variable} ${poppins.className} antialiased`}>
         <Header />
 
         <Navbar />
