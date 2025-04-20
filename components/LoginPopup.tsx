@@ -1,5 +1,6 @@
 import { t } from "@/lib/texts";
 import Link from "next/link";
+import Input from "./Input";
 
 export default function LoginPopup({ onClose }: { onClose: () => void }) {
   return (
@@ -30,31 +31,25 @@ export default function LoginPopup({ onClose }: { onClose: () => void }) {
         </button>
 
         <h2 className="text-3xl font-bold text-center mb-2">
-          {t("index.login.hello")}
+          {t("login.hello")}
         </h2>
         <p className="text-center text-gray-400 mb-4">
-          {t("index.login.description").replace("{0}", "2")}
+          {t("login.description").replace("{0}", "2")}
         </p>
 
         <form className="flex flex-col gap-4">
           <div>
-            <label className="block font-bold mb-2">
-              {t("index.login.username.label")}
-            </label>
-            <input
+            <Input
+              placeholder={t("login.username.placeholder")}
               type="text"
-              placeholder={t("index.login.username.placeholder")}
-              className="w-full px-3 py-2 bg-transparent border-2 border-gray-600 rounded-md placeholder-gray-500 focus:outline-none focus:border-yellow-500"
+              label={t("login.username.label")}
             />
           </div>
           <div>
-            <label className="block font-bold mb-2">
-              {t("index.login.password.label")}
-            </label>
-            <input
+            <Input
+              placeholder={t("login.password.placeholder")}
               type="current-password"
-              placeholder={t("index.login.password.label")}
-              className="w-full px-3 py-2 bg-transparent border-2 border-gray-600 rounded-md placeholder-gray-500 focus:outline-none focus:border-yellow-500"
+              label={t("login.password.label")}
             />
           </div>
 
@@ -62,17 +57,17 @@ export default function LoginPopup({ onClose }: { onClose: () => void }) {
             type="submit"
             className="bg-yellow-500 text-white font-semibold py-2 rounded-md hover:bg-yellow-600 transition cursor-pointer"
           >
-            {t("index.login.submit")}
+            {t("login.submit")}
           </button>
         </form>
 
         <div className="text-sm text-center text-gray-400 font-bold mt-4 space-y-2 flex flex-col">
           <Link href="/forgot-password" className="hover:underline">
-            <p>{t("index.login.forgotpassword")}</p>
+            <p>{t("login.forgotpassword")}</p>
           </Link>
 
           <Link href="/register" className="hover:underline">
-            <p>{t("index.login.donthaveaccount")}</p>
+            <p>{t("login.donthaveaccount")}</p>
           </Link>
         </div>
       </div>

@@ -17,3 +17,30 @@ export const navItems = [
     ],
   },
 ];
+
+export const posts = [
+  {
+    title: "Lorem ipsum",
+    href: "/1-lorem-ipsum",
+    author: "belgrard",
+    image: "/assets/hero-bg.png",
+  },
+  {
+    title: "Lorem ipsum 2",
+    href: "/2-lorem-ipsum",
+    author: "belgrard",
+    image: "/assets/hero-bg.png",
+  },
+  {
+    title: "Lorem ipsum 3",
+    href: "/3-lorem-ipsum",
+    author: "belgrard",
+    image: "/assets/hero-bg.png",
+  },
+  {
+    title: "Lorem ipsum 4",
+    href: "/4-lorem-ipsum",
+    author: "belgrard",
+    image: "/assets/hero-bg.png",
+  },
+];

@@ -13,3 +13,12 @@ body {
 .hotel-icon {
   background: #f68b08 url("/assets/hotel-icon.png") no-repeat center;
 }
+
+.article-image {
+  display: block;
+  width: 100%;
+  height: 50%;
+  background-position: 300px 220px !important;
+  margin: 0 0 20px;
+  transition: 0.3s;
+}

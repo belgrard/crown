@@ -23,7 +23,7 @@ export default function RootLayout({
 
         <Navbar />
 
-        <div className="bg-gray-800 text-white">{children}</div>
+        <div className="bg-gray-800 text-white px-25 py-8">{children}</div>
 
         <Footer />
       </body>

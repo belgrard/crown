@@ -34,7 +34,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-900 mx-auto text-white h-15 px-15 flex items-center gap-8 text-sm font-bold relative">
+    <nav className="bg-gray-900 mx-auto text-white h-15 px-20 flex items-center gap-8 text-sm font-bold relative">
       {/* Loop over each nav item */}
       {navItems.map(({ href, label, icon, dropdown }) => {
         const isDropdownOpen = openDropdown === label;
@@ -57,6 +57,19 @@ export default function Navbar() {
               >
                 <Image src={icon} alt={icon} height={15} width={15}></Image>
                 <span>{label.toUpperCase()}</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-gray-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  data-darkreader-inline-fill=""
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
               </button>
             ) : (
               <Link
