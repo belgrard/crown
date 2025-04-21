@@ -3,7 +3,7 @@
 import { t } from "@/lib/texts";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import LoginPopup from "./LoginPopup";
+import LoginPopup from "../auth/LoginPopup";
 
 export default function Header() {
   const [showLogin, setShowLogin] = useState(false);

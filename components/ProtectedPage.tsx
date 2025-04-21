@@ -1,6 +1,6 @@
 import { getUserFromToken } from "@/lib/auth";
-import Box from "./Box";
-import LoginForm from "./LoginForm";
+import Box from "./common/Box";
+import LoginForm from "./auth/LoginForm";
 import { t } from "@/lib/texts";
 
 export default async function ProtectedPage({

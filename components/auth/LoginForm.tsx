@@ -4,7 +4,7 @@ import { t } from "@/lib/texts";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import Input from "./Input";
+import Input from "../ui/Input";
 
 export default function LoginForm() {
   const router = useRouter();

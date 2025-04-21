@@ -1,7 +1,7 @@
 "use client";
 
-import Box from "@/components/Box";
-import Input from "@/components/Input";
+import Box from "@/components/common/Box";
+import Input from "@/components/ui/Input";
 import { t } from "@/lib/texts";
 import Image from "next/image";
 import Link from "next/link";
