@@ -115,6 +115,7 @@ export default function RegisterPage() {
                     type="checkbox"
                     name="terms"
                     className="rounded ring-0 focus:ring-0"
+                    required
                   />
                   <Link
                     className="text-sm font-bold text-gray-700 hover:text-gray-900 hover:underline dark:hover:text-gray-300 dark:text-gray-500"

@@ -29,6 +29,7 @@ export default function Input({
         id={id}
         name={name}
         minLength={minLength}
+        required
       />
     </div>
   );

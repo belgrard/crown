@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getUserFromToken } from "@/lib/auth";
+import CurrencyBar from "@/components/layout/CurrencyBar";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -21,8 +22,18 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="bg-gray-900">
-      <body className={`${poppins.variable} ${poppins.className} antialiased`}>
-        {!user ? <Header /> : null}
+      <body
+        className={`${poppins.variable} ${poppins.className} antialiased bg-gray-900`}
+      >
+        {!user ? (
+          <Header />
+        ) : (
+          <CurrencyBar
+            duckets={user.currencies.duckets}
+            diamonds={user.currencies.diamonds}
+            credits={user.currencies.credits}
+          />
+        )}
 
         <Navbar />
 
