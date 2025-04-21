@@ -6,7 +6,7 @@
     "errors": {
       "emailinuse": "Email already in use",
       "usernameinuse": "Username already in use",
-      "emailorpassword": "Invalid email or password",
+      "usernameorpassword": "Invalid username or password",
       "terms": "The terms field is required.",
       "password": {
         "length": "Password must be at least 8 characters.",

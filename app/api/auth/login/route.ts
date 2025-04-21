@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     const user = await User.findOne({ username });
     if (!user) {
       return NextResponse.json(
-        { error: t("server.errors.emailorpassword") },
+        { error: t("server.errors.usernameorpassword") },
         { status: 401 }
       );
     }
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) {
       return NextResponse.json(
-        { error: t("server.errors.emailorpassword") },
+        { error: t("server.errors.usernameorpassword") },
         { status: 401 }
       );
     }

@@ -32,20 +32,13 @@ export default function LoginForm() {
     const formData = new FormData(e.currentTarget);
     const username = formData.get("username");
     const password = formData.get("password");
-    const passwordRepeat = formData.get("password_confirmation");
-    const email = formData.get("email");
-    const terms = formData.get("terms");
 
-    if (passwordRepeat !== password) {
-      return showToast(t("register.form.password.dontmatch"));
-    }
-
-    const res = await fetch("/api/auth/register", {
+    const res = await fetch("/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password, email, terms }),
+      body: JSON.stringify({ username, password }),
     });
 
     if (res.ok) {
