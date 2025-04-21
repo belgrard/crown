@@ -1,9 +1,11 @@
 import { cookies } from "next/headers";
 import { verifyToken } from "./jwt";
 import User from "@/models/User";
+import { connectDB } from "./mongodb";
 
 export async function getUserFromToken() {
   const token = (await cookies()).get("token")?.value;
+
   if (!token) return null;
 
   try {
@@ -11,6 +13,7 @@ export async function getUserFromToken() {
     if (typeof decoded === "string") return null;
 
     if (decoded && typeof decoded !== "string" && decoded.id) {
+      await connectDB();
       const user = await User.findById(decoded.id);
 
       if (!user) return null;
@@ -19,8 +22,8 @@ export async function getUserFromToken() {
     }
 
     return null;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (err) {
+    console.error(err);
     return null;
   }
 }
