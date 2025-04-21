@@ -2,7 +2,7 @@
 
 import { t } from "@/lib/texts";
 import Link from "next/link";
-import Input from "./ui/Input";
+import Input from "../ui/Input";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { useRouter } from "next/navigation";
