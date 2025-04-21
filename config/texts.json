@@ -47,7 +47,11 @@
     },
     "submit": "Login",
     "forgotpassword": "Did you forget your password?",
-    "donthaveaccount": "Don't you have an account?"
+    "donthaveaccount": "Don't you have an account?",
+    "box": {
+      "title": "Login to Crown",
+      "description": "Login to Crown and take part in the most wonderful online world!"
+    }
   },
   "register": {
     "title": "Crown - Create account",

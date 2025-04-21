@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { getUserFromToken } from "@/lib/auth";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -11,15 +12,17 @@ const poppins = Poppins({
   weight: ["400", "600", "700"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const user = await getUserFromToken();
+
   return (
     <html lang="en" className="bg-gray-900">
       <body className={`${poppins.variable} ${poppins.className} antialiased`}>
-        <Header />
+        {!user ? <Header /> : null}
 
         <Navbar />
 

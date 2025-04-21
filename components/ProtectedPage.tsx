@@ -1,4 +1,7 @@
 import { getUserFromToken } from "@/lib/auth";
+import Box from "./Box";
+import LoginForm from "./LoginForm";
+import { t } from "@/lib/texts";
 
 export default async function ProtectedPage({
   children,
@@ -6,9 +9,16 @@ export default async function ProtectedPage({
   children: React.ReactNode;
 }) {
   const user = await getUserFromToken();
-  console.log(user);
+
   if (!user) {
-    return <h1>Login is required to see this page</h1>;
+    return (
+      <Box
+        title={t("login.box.title")}
+        description={t("login.box.description")}
+      >
+        <LoginForm />
+      </Box>
+    );
   } else {
     return <>{children}</>;
   }

@@ -13,6 +13,8 @@ export async function getUserFromToken() {
     if (decoded && typeof decoded !== "string" && decoded.id) {
       const user = await User.findById(decoded.id);
 
+      if (!user) return null;
+
       return user;
     }
 
